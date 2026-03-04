@@ -24,7 +24,7 @@ public class AudioManager : ScriptLibrary.Singletons.Singleton<AudioManager>
         _songStartTime = AudioSettings.dspTime + startDelay;
         _nextBeatTime = _songStartTime;
 
-        _musicSource.PlayScheduled(_songStartTime);
+        _musicSource.PlayScheduled(_songStartTime); 
         _songStarted = true;
     }
 
