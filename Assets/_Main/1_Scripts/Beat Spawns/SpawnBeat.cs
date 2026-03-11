@@ -7,6 +7,7 @@ namespace _Main.Scripts
     {
         public Transform[] spawnPoints;
         public GameObject notePrefab;
+
         void Start()
         {
 
@@ -21,10 +22,11 @@ namespace _Main.Scripts
             int randomIndex = Random.Range(0, spawnPoints.Length);
             Transform randomSpawnPoint = spawnPoints[randomIndex];
 
-            Instantiate(notePrefab, randomSpawnPoint.position, Quaternion.identity);
+
+            Instantiate(notePrefab, randomSpawnPoint.position, randomSpawnPoint.rotation);
             Debug.Log("Spawned a Note");
         }
-        
+    
     }
 
 }
