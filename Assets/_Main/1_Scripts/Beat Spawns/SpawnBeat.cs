@@ -10,7 +10,7 @@ namespace _Main.Scripts
         void Start()
         {
 
-            AudioManager.Instance.OnSpawn +=
+            SpawnManager.Instance.OnSpawn +=
             SpawnRandomNote;
             
         }

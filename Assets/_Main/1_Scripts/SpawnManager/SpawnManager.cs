@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class AudioManager : ScriptLibrary.Singletons.Singleton<AudioManager>
+public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
 {
     public Action OnBeat;
     public Action OnSpawn;
@@ -32,14 +32,11 @@ public class AudioManager : ScriptLibrary.Singletons.Singleton<AudioManager>
     {
         if (!_songStarted) return;
 
-        if (AudioSettings.dspTime >= _nextBeatTime + 1f)
+        if (AudioSettings.dspTime >= _nextBeatTime)
         {
             OnSpawn?.Invoke();
-        }
-        else if (AudioSettings.dspTime >= _nextBeatTime)
-        {
-            OnBeat?.Invoke();
             _nextBeatTime += _secondsPerBeat;
+            Debug.Log("1 beat");
         }
     }
 }
