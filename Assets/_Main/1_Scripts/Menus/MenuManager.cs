@@ -5,9 +5,17 @@ public class MenuManager : MonoBehaviour
 {
     public void LoadGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("SevenNationArmy");
     }
-
+    
+    public void MusicSelect()
+    {
+        SceneManager.LoadScene("MusicSelect");
+    }
+    public void Back()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void QuitGame()
     {
         Application.Quit();
