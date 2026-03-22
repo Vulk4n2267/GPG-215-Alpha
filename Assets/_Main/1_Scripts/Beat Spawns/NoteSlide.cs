@@ -1,19 +1,25 @@
 using UnityEngine;
 
-public class NoteSlide : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    public float speed = 5f;
-
-    void Update()
+    public class NoteSlide : MonoBehaviour
     {
-        // Move the object along its local forward axis at a consistent speed
-        transform.position += transform.forward * speed * Time.deltaTime;
+        public float speed = 5f;
+
+        private Vector3 moveDirection;
+
+        private void Awake()
+        {
+            moveDirection = transform.forward;
+        }
+
+        private void OnEnable()
+        {
+            // Reset movement direction every time it's reused
+            moveDirection = transform.forward;
+        }
+
+        void Update()
+        {
+            transform.position += moveDirection * speed * Time.deltaTime;
+        }
     }
-}

@@ -363,6 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206132721}
+  - component: {fileID: 206132722}
   m_Layer: 0
   m_Name: Notes Spawn
   m_TagString: Untagged
@@ -393,6 +394,20 @@ Transform:
   - {fileID: 2118232490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.634}
+--- !u!114 &206132722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206132720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291b031c59c83a247932cf93f79277da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePool
+  notePrefab: {fileID: 4756770970082932895, guid: 69dd7acdf08c107459aee4dfff2b1bb0, type: 3}
+  initialPoolSize: 20
 --- !u!1 &256643518
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +446,6 @@ MonoBehaviour:
   - {fileID: 788172734}
   - {fileID: 1703893138}
   - {fileID: 2118232490}
-  notePrefab: {fileID: 4756770970082932895, guid: 69dd7acdf08c107459aee4dfff2b1bb0, type: 3}
 --- !u!4 &256643521
 Transform:
   m_ObjectHideFlags: 0

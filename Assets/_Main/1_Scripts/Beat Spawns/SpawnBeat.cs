@@ -6,26 +6,22 @@ namespace _Main.Scripts
     public class BeatSpawn : MonoBehaviour
     {
         public Transform[] spawnPoints;
-        public GameObject notePrefab;
 
         void Start()
         {
-
-            SpawnManager.Instance.OnSpawn +=
-            SpawnRandomNote;
-            
+            SpawnManager.Instance.OnSpawn += SpawnRandomNote;
         }
 
-          void SpawnRandomNote()
+        void SpawnRandomNote()
         {
-            
             int randomIndex = Random.Range(0, spawnPoints.Length);
             Transform randomSpawnPoint = spawnPoints[randomIndex];
 
+            GameObject note = NotePool.Instance.GetNote();
 
-            Instantiate(notePrefab, randomSpawnPoint.position, randomSpawnPoint.rotation);
+            note.transform.position = randomSpawnPoint.position;
+            note.transform.rotation = randomSpawnPoint.rotation;
         }
-    
     }
-
 }
+
