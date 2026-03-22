@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291b031c59c83a247932cf93f79277da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePool
-  notePrefab: {fileID: 4756770970082932895, guid: 69dd7acdf08c107459aee4dfff2b1bb0, type: 3}
+  notePrefab: {fileID: 4756770970082932895, guid: 6f66a168b14becc1c8bb67b6b7159371, type: 3}
   initialPoolSize: 20
 --- !u!1 &256643518
 GameObject:

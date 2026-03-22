@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - notePrefab: {fileID: 4756770970082932895, guid: 69dd7acdf08c107459aee4dfff2b1bb0, type: 3}
+  - notePrefab: {fileID: 4756770970082932895, guid: 6f66a168b14becc1c8bb67b6b7159371, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
