@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
 {
-    public Action OnBeat;
     public Action OnSpawn;
-    public GameObject prefab;
     public float bpm = 124f;
     public float startDelay = 2.0f;
+    public float travelTime = 2.438f;
     
     
     private AudioSource _musicSource;
@@ -28,15 +27,17 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
         _songStarted = true;
     }
 
+    private int _beatIndex = 0;
     void Update()
     {
         if (!_songStarted) return;
 
-        if (AudioSettings.dspTime >= _nextBeatTime)
+        if (AudioSettings.dspTime >= _nextBeatTime - travelTime)
         {
-            OnSpawn?.Invoke();
+            if (_beatIndex % 4 == 0)
+                OnSpawn?.Invoke(); 
+            _beatIndex++;
             _nextBeatTime += _secondsPerBeat;
-            Debug.Log("1 beat");
         }
     }
 }

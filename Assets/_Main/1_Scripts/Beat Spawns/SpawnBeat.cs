@@ -24,7 +24,6 @@ namespace _Main.Scripts
 
 
             Instantiate(notePrefab, randomSpawnPoint.position, randomSpawnPoint.rotation);
-            Debug.Log("Spawned a Note");
         }
     
     }
