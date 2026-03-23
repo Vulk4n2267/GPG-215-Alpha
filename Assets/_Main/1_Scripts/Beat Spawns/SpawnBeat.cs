@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Main.Scripts
@@ -14,13 +13,19 @@ namespace _Main.Scripts
 
         void SpawnRandomNote()
         {
+            // Get random spawn point
             int randomIndex = Random.Range(0, spawnPoints.Length);
             Transform randomSpawnPoint = spawnPoints[randomIndex];
 
-            GameObject note = NotePool.Instance.GetNote();
+            // Get random note type
+            NoteType randomType = NoteFactory.GetRandomNoteType();
 
-            note.transform.position = randomSpawnPoint.position;
-            note.transform.rotation = randomSpawnPoint.rotation;
+            // Create note using factory
+            GameObject note = NoteFactory.CreateNote(
+                randomType,
+                randomSpawnPoint.position,
+                randomSpawnPoint.rotation
+            );
         }
     }
 }
