@@ -7,8 +7,9 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
     public float bpm = 124f;
     public float startDelay = 2.0f;
     public float travelTime = 2.438f;
-    
-    
+    public Transform hitPoint;
+
+
     private AudioSource _musicSource;
     private double _songStartTime;
     private double _nextBeatTime;
@@ -39,6 +40,11 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
             _beatIndex++;
             _nextBeatTime += _secondsPerBeat;
         }
+    }
+    public float GetNoteSpeed(Vector3 spawnPos, Vector3 hitPos)
+    {
+        float distance = Vector3.Distance(spawnPos, hitPos);
+        return distance / travelTime;
     }
 }
 

@@ -148,7 +148,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: ab5b26c8efc068bd2ba4906403c83423, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2b770b7173bdabc419dcb5f740c0644a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d20672d47752b85f801f03238158692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  bpm: 124
-  startDelay: 2
-  travelTime: 2.438
+  bpm: 288
+  startDelay: 0
+  travelTime: 0.8
   hitPoint: {fileID: 1480641689}
 --- !u!4 &9317585
 Transform:
