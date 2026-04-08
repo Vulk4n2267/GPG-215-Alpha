@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d20672d47752b85f801f03238158692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  bpm: 288
+  bpm: 144
   startDelay: 0
   travelTime: 0.8
   hitPoint: {fileID: 1480641689}

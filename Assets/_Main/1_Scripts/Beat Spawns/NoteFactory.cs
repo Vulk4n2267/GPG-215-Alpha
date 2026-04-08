@@ -36,8 +36,8 @@ namespace _Main.Scripts
 
             
             Vector3 hitPosition = SpawnManager.Instance.transform.position;
-            
-            float speed = SpawnManager.Instance.GetNoteSpeed(position, hitPosition);
+
+            float speed = SpawnManager.Instance.GetNoteSpeed(position);
 
             slide.speed = -speed;
 

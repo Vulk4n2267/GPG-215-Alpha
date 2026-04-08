@@ -91,9 +91,9 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
         }
 
     }
-    public float GetNoteSpeed(Vector3 spawnPos, Vector3 hitPos)
+    public float GetNoteSpeed(Vector3 spawnPos)
     {
-        float distance = Vector3.Distance(spawnPos, hitPos);
+        float distance = Mathf.Abs(spawnPos.z - hitPoint.position.z);
         return distance / travelTime;
     }
 }
