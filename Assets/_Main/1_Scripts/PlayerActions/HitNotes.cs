@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(InputHandler))]
 public class HitNotes : MonoBehaviour
@@ -33,6 +34,9 @@ public class HitNotes : MonoBehaviour
                         hit.transform.position.z > transform.position.z - 0.5f)
                     {
                         GameManager.Instance.AddScore(100);
+                        SpawnParticle(note.transform.position);
+
+
                     }
                     else
                     {
@@ -41,8 +45,27 @@ public class HitNotes : MonoBehaviour
 
                     
                     NotePool.Instance.ReturnNote(note);
+                    
                 }
             }
         }
+    }
+
+    void SpawnParticle(Vector3 position)
+    {
+        GameObject particle = ParticlePool.Instance.GetParticle();
+
+        particle.transform.position = position;
+
+        ParticleSystem ps = particle.GetComponent<ParticleSystem>();
+        ps.Play();
+
+        StartCoroutine(ReturnParticleAfterTime(particle, ps.main.duration + ps.main.startLifetime.constantMax));
+    }
+    
+    IEnumerator ReturnParticleAfterTime(GameObject particle, float time)
+    {
+        yield return new WaitForSeconds(time);
+        ParticlePool.Instance.ReturnParticle(particle);
     }
 }
