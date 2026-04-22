@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   bpm: 124
   startDelay: 2
-  travelTime: 0.5
+  travelTime: 1
   hitPoint: {fileID: 1480641689}
 --- !u!4 &9317585
 Transform:

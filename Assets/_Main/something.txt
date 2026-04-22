@@ -1,0 +1,30 @@
+feature graphic: 1024 x 500 px
+16:9 aspect ratio (max 8) (2-8, for phones, 7-inch tablet and 10-inch tablet each) (screenshots)
+app icon: 512 x 512 px
+
+app rating: everyone, all ages, 3+ 
+
+target age, 13-15 16-17 18 and over
+
+no appeal to children
+
+not news app
+
+privacy policy: 
+
+app or game: game
+category: music?
+tags: 5 tags for rhythm game
+
+
+App name: Project H
+description: a fast paced rhtyhm game with revolutionary gameplay
+long desc: Project H is a rhythm game with vibrant and engaging musical experience with accessible controls that make for an immersive gameplay with songs that resolnate with you. Tap the cascading tiles on beat and feel the rhythm on your bones. Feel the power surging through your finger as you hit the notes and aim to be the very best no one ever was.
+
+ youtube video link: 
+
+publish app bundle/apk
+
+release name: 1 (1.0.0)
+
+release note: first publish
