@@ -15,6 +15,10 @@ public class HitNotes : MonoBehaviour
     [SerializeField] private Color perfectColor;
     [SerializeField] private Color goodColor;
     [SerializeField] private Color missColor;
+    public AudioSource source;
+    public AudioClip hit;
+    public AudioClip miss;
+
 
     void Start()
     {
@@ -41,15 +45,18 @@ public class HitNotes : MonoBehaviour
                     hit.transform.position.z > transform.position.z - 0.5f)
                 {
                     PerfectScore(accuracy);
+                    PlayHit();
                 }
                 else if (hit.transform.position.z < transform.position.z + 1f &&
                          hit.transform.position.z > transform.position.z - 1f)
                 {
                     GoodScore(accuracy);
+                    PlayHit();
                 }
                 else
                 {
                     MissScore();
+                    PlayMiss();
                 }
                 SpawnParticle(note.transform.position);
                 popAnimator.Play("ScoreGradePopUp", 0, 0f);
@@ -96,5 +103,14 @@ public class HitNotes : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         ParticlePool.Instance.ReturnParticle(particle);
+    }
+
+    private void PlayHit()
+    {
+        source.PlayOneShot(hit, 0.5f);
+    }
+    private void PlayMiss()
+    {
+        source.PlayOneShot(miss, 0.1f);
     }
 }
