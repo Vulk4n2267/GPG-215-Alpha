@@ -19,6 +19,11 @@ public class MenuManager : MonoBehaviour
 
     public void MusicSelect()
     {
+        if (!PlayerPrefs.HasKey("PlayerName"))
+        {
+            SceneManager.LoadScene("PlayerNameInput");
+            return;
+        }
         SceneManager.LoadScene("MusicSelect");
     }
     public void Back()

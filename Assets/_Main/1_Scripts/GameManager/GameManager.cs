@@ -1,6 +1,7 @@
 using UnityEngine;
 using ScriptLibrary.Singletons;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -41,5 +42,12 @@ public class GameManager : Singleton<GameManager>
     {
         scoreText.text = _score.ToString();
         scoreAnimator.Play("ScoreTextPopUp", 0, 0f);
+    }
+
+    public void EndGame()
+    {
+        PlayerPrefs.SetInt("Score", _score);
+        PlayerPrefs.SetInt("Streak", _score);
+        SceneManager.LoadScene("_Main/0_Scenes/Main menu/LeaderBoard");
     }
 }

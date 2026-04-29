@@ -18,8 +18,9 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
     private double _nextBeatTime;
     private float _secondsPerBeat;
     private bool _songStarted = false;
+    private double _songEndTime;
     
-    // queue containing all the beat flags, if its true, its played, if its false its not
+    // queue containing all the beat flags, if it's true, its played, if its false it's not
     private Queue<bool> _beatQueue = new Queue<bool>();
 
     void Start()
@@ -33,6 +34,7 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
         _nextBeatTime = _songStartTime;
 
         _musicSource.PlayScheduled(_songStartTime); 
+        _songEndTime = _songStartTime + _musicSource.clip.length;
         _songStarted = true;
     }
 
@@ -78,18 +80,26 @@ public class SpawnManager : ScriptLibrary.Singletons.Singleton<SpawnManager>
 
         if (AudioSettings.dspTime >= _nextBeatTime - travelTime)
         {
-            //check if beat should be played from queee
-            bool shouldPlayBeat = _beatQueue.Count <= 0 || _beatQueue.Dequeue();
-            
-            print(shouldPlayBeat);
-            if (shouldPlayBeat)
+            if (AudioSettings.dspTime < _songEndTime - 1.0)
             {
-                OnSpawn?.Invoke();
+                // if there's beat in the queue
+                bool shouldPlayBeat = _beatQueue.Count <= 0 || _beatQueue.Dequeue();
+
+                print(shouldPlayBeat);
+                if (shouldPlayBeat)
+                {
+                    OnSpawn?.Invoke();
+                }
+
+                _nextBeatTime += _secondsPerBeat;
             }
-            
-            _nextBeatTime += _secondsPerBeat;
         }
 
+        if (AudioSettings.dspTime >= _songEndTime)
+        {
+            _songStarted = false;
+            GameManager.Instance.EndGame();
+        }
     }
     public float GetNoteSpeed(Vector3 spawnPos)
     {
