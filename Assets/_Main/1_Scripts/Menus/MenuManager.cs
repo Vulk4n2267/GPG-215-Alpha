@@ -3,11 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public void LoadGame()
+    public void LoadSNA()
     {
         SceneManager.LoadScene("SevenNationArmy");
     }
-    
+
+    public void LoadNFA()
+    {
+        SceneManager.LoadScene("NeverFadeAway");
+    }
+    public void LoadSA()
+    {
+        SceneManager.LoadScene("StepAhead");
+    }
+
     public void MusicSelect()
     {
         SceneManager.LoadScene("MusicSelect");
